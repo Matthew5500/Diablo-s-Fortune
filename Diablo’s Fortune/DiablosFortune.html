@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diablo’s Fortune</title>
+  <!-- Google Fonts: Monoton for title, Montserrat for body -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="slot-container">
+    <h1>Diablo’s Fortune</h1>
+
+    <!-- Controls arranged horizontally -->
+    <div class="controls">
+      <div class="control-item">
+        <label for="balance">Balance</label>
+        <div class="input-currency">
+          <span>$</span>
+          <input type="number" id="balance" value="100" />
+        </div>
+      </div>
+      <div class="control-item">
+        <label for="betAmount">Bet Amount</label>
+        <div class="input-currency">
+          <span>$</span>
+          <input type="number" id="betAmount" min="1" value="10" />
+        </div>
+      </div>
+      <div class="control-item">
+        <label for="multiplier">Multiplier</label>
+        <select id="multiplier">
+          <option value="1">x1</option>
+          <option value="2">x2</option>
+          <option value="5">x5</option>
+          <option value="10">x10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hell's Seventh Chance progress bar -->
+    <div class="hsc-progress">
+      <span>Hell's Seventh Chance</span>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="hscProgress"></div>
+      </div>
+    </div>
+
+    <div class="slot-machine" id="machine">
+      <div class="slot default" id="slot0"></div>
+      <div class="slot default" id="slot1"></div>
+      <div class="slot default" id="slot2"></div>
+      <div class="slot default" id="slot3"></div>
+      <div class="slot default" id="slot4"></div>
+      <div class="slot default" id="slot5"></div>
+      <div class="slot default" id="slot6"></div>
+      <div class="slot default" id="slot7"></div>
+      <div class="slot default" id="slot8"></div>
+    </div>
+
+    <button class="spin-btn" onclick="spinSlots()">Spin</button>
+    <p class="big-message" id="message"></p>
+    <button class="toggle-log-btn" onclick="toggleLog()">Show Log</button>
+    <div id="log"></div>
+  </div>
+
+  <!-- Sound Menu at Bottom Left -->
+  <div id="sound-menu">
+    <div class="menu-header">Mic</div>
+    <div class="menu-options">
+      <div class="menu-option" data-bg="bg1">Kichijoji 199x</div>
+      <div class="menu-option" data-bg="bg2">It’s Going Down Now</div>
+      <div class="menu-option" data-bg="bg3">Last Surprise</div>
+      <div class="menu-option" data-bg="default">The Whims of Fate</div>
+      <div class="menu-option" data-bg="off">Music Off</div>
+      <div class="menu-option" data-all="off">All Sounds Off</div>
+      <div class="menu-option volume-option">
+        Volume:
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
