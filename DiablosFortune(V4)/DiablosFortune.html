@@ -1,0 +1,148 @@
+<!--
+==========================================================================
+Project: Diablo's Fortune (Slot Machine Game Part of Diablo's Lounge)
+Module: DiablosFortune.html
+Description: 
+  This file contain the main HTML structure for the Diablo's Fortune slot machine game.
+  It's responsible for defining the layout of the game and key elements that interact with both the CSS styling and JavaScript Functionality.
+Purpose:
+  - Set up the game interface.
+Dependencies:
+  - style.css (for styling)
+  - script.js (for game logic)
+Author: Matthew Pizzitola
+Last Updated: 03/20/2025
+==========================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Diablo's Fortune</title>
+    <!--Google Fonts Used: "Monoton" for Titles & "Monserrat" for Body-->
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!--Link to CSS StyleSheet-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--Diablo's Fortune Main Body-->
+<body>
+    
+    <!--Group All Elements of the Slot Machine Game Together-->
+    <div class="slot-conatiner">
+        <h1>Diablo’s Fortune</h1>
+        
+
+        <!--Balance, Bet Amount, and Multipler Inputs-->
+        <div class="input">
+            
+            <!--Balance Input-->
+            <div class="input-item">
+                <label for="balance">Balance</label>
+                <!--Sub-Container to Style Input Currency-->
+                <div class="input-currency">
+                    <span>$</span>
+                    <input type="number" id="blanace" value="100"> <!--Set a Defult Value of 100 (Update Later on When Crypto Curnecy is Created and Implemented)-->
+                </div>
+            </div>
+
+            <!--Bet Amount-->
+            <div class="input-item">
+                <lable for="betAmount">Bet Amount</lable>
+                <!--Sub-Container to Style Input Currency-->
+                <div class="input-currency">
+                    <span>$</span>
+                    <input type="number" id="betAmount" min="1" value="10"> <!--Set a Defult Value of $10 for the Bet Amount and a Mininum of $1 (Update Later on When Crypto Curnecy is Created and Implemented)-->
+                </div>
+            </div>
+
+            <!--Output Multiplier-->
+            <div class="input-item">
+                <lable for="multiplier">Multiplier</lable>
+                <!--Drop-Down List With Diffrent Return/Loss Rates-->
+                <select id="multiplier">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="5">x5</option>
+                    <option value="10">x10</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <!--"Hell's Seventh Chance" Pity System Progress Bar-->
+        <div class="hsc-progress">
+            <span>Hell's Seventh Chance</span>
+            <!--Container to Style The Progress Bar-->
+            <div class="progress-bar-container">
+                <!--Container to Style the Progress in the Progress Bar-->
+                <div class="progress-bar" id="hscProgress"></div>
+            </div>
+        </div>
+        
+
+        <!--Slot Machine Grid-->
+        <div class="slot-machine" id="machine">
+            <!--Container to Style the Slots Icons-->
+            <div class="slot default" id="slot0"></div>
+            <div class="slot default" id="slot1"></div>
+            <div class="slot default" id="slot2"></div>
+            <div class="slot default" id="slot3"></div>
+            <div class="slot default" id="slot4"></div>
+            <div class="slot default" id="slot5"></div>
+            <div class="slot default" id="slot6"></div>
+            <div class="slot default" id="slot7"></div>
+            <div class="slot default" id="slot8"></div>
+        </div>
+
+
+        <!--Game Controls-->
+        
+        <!--Spin Button-->
+        <button class="spin-btn" onclick="spinSlots()">Spin</button> <!--When Spin Button is Clicked Call The JS Function "spinSlots" to Roll The Slots-->
+
+        <!--Empty Paragraph to Display Result Message-->
+        <p class="big-message" id="message"></p>
+
+        <!--Game Statistics Log Button-->
+        <button class="toggle-log-btn" onlick="toggleLog()">Show Log</button> <!--When Log Button is Clicked Call The JS Function "toggleLog" to Display The Current Games Statistics-->
+        <div id="log"></div> <!--Empty Div That Will Dynamicaly be Filled With Game Data Via JavaScript-->
+
+
+        <!--Sound Menu-->
+        <div id="sound-menu">
+            
+            <!--Create Menu Header-->
+            <div class="menu-header">Mic</div>
+            
+            <!--Create Menu Options-->
+            <div class="menu-options">
+
+                <!--Music Choices-->
+                <div class="menu-option" data-bg="default">The Whims of Fate</div> <!--Defualt Background Music-->
+                <div class="menu-option" data-bg="bg1">Kichijoji 199x</div>
+                <div class="menu-option" data-bg="bg2">Last Surprise</div>
+                <div class="menu-option" data-bg="bg3">It's Going Down Now</div>
+
+                <!--Music and Sound Options-->
+                <div class="menu-option" data-bg="off">Music Off</div>
+                <div class="menu-option" data-all="off">All Sounds</div>
+
+                <!--Music Volume Slider-->
+                <div class="menu-option volume-option">
+                    Volume:
+                    <input type="range" id="volumeslider" min="0" max="1" step="0.01" value="0.5"> 
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--Create Link to JavaScript File-->
+    <script src="script.js"></script>
+
+</body>
+</html> 
