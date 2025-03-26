@@ -6,31 +6,34 @@ Description:
   This file contain the main HTML structure for the Diablo's Fortune slot machine game.
   It's responsible for defining the layout of the game and key elements that interact with both the CSS styling and JavaScript Functionality.
 Purpose:
-  - Set up the game interface.
+  - To establish the user interface for the slot machine game.
+  - To integrate styling and functionality provided by the CSS and JavaScript files.
 Dependencies:
   - style.css (for styling)
   - script.js (for game logic)
+  - External resources such as Google Fonts, images, and sound assets.
 Author: Matthew Pizzitola
 Last Updated: 03/20/2025
 ==========================================================================
 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diablo's Fortune</title>
     <!--Google Fonts Used: "Monoton" for Titles & "Monserrat" for Body-->
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!--Link to CSS StyleSheet-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/CSS/style.css">
 </head>
 <!--Diablo's Fortune Main Body-->
 <body>
     
     <!--Group All Elements of the Slot Machine Game Together-->
-    <div class="slot-conatiner">
+    <div class="slot-container">
         <h1>Diablo’s Fortune</h1>
         
 
@@ -43,13 +46,13 @@ Last Updated: 03/20/2025
                 <!--Sub-Container to Style Input Currency-->
                 <div class="input-currency">
                     <span>$</span>
-                    <input type="number" id="blanace" value="100"> <!--Set a Defult Value of 100 (Update Later on When Crypto Curnecy is Created and Implemented)-->
+                    <input type="number" id="balance" value="100"> <!--Set a Defult Value of 100 (Update Later on When Crypto Curnecy is Created and Implemented)-->
                 </div>
             </div>
 
             <!--Bet Amount-->
             <div class="input-item">
-                <lable for="betAmount">Bet Amount</lable>
+                <label for="betAmount">Bet Amount</label>
                 <!--Sub-Container to Style Input Currency-->
                 <div class="input-currency">
                     <span>$</span>
@@ -59,7 +62,7 @@ Last Updated: 03/20/2025
 
             <!--Output Multiplier-->
             <div class="input-item">
-                <lable for="multiplier">Multiplier</lable>
+                <label for="multiplier">Multiplier</label>
                 <!--Drop-Down List With Diffrent Return/Loss Rates-->
                 <select id="multiplier">
                     <option value="1">x1</option>
@@ -107,7 +110,7 @@ Last Updated: 03/20/2025
         <p class="big-message" id="message"></p>
 
         <!--Game Statistics Log Button-->
-        <button class="toggle-log-btn" onlick="toggleLog()">Show Log</button> <!--When Log Button is Clicked Call The JS Function "toggleLog" to Display The Current Games Statistics-->
+        <button class="toggle-log-btn" onclick="toggleLog()">Show Log</button> <!--When Log Button is Clicked Call The JS Function "toggleLog" to Display The Current Games Statistics-->
         <div id="log"></div> <!--Empty Div That Will Dynamicaly be Filled With Game Data Via JavaScript-->
 
 
@@ -121,10 +124,10 @@ Last Updated: 03/20/2025
             <div class="menu-options">
 
                 <!--Music Choices-->
-                <div class="menu-option" data-bg="default">The Whims of Fate</div> <!--Defualt Background Music-->
+                <div class="menu-option" data-bg="default">Stranger Than Paradise</div> <!--Defualt Background Music-->
                 <div class="menu-option" data-bg="bg1">Kichijoji 199x</div>
-                <div class="menu-option" data-bg="bg2">Last Surprise</div>
-                <div class="menu-option" data-bg="bg3">It's Going Down Now</div>
+                <div class="menu-option" data-bg="bg2">No Business Like Show Business</div>
+                <div class="menu-option" data-bg="bg3">Hell Is Preferable to Nihility</div>
 
                 <!--Music and Sound Options-->
                 <div class="menu-option" data-bg="off">Music Off</div>
@@ -133,7 +136,7 @@ Last Updated: 03/20/2025
                 <!--Music Volume Slider-->
                 <div class="menu-option volume-option">
                     Volume:
-                    <input type="range" id="volumeslider" min="0" max="1" step="0.01" value="0.5"> 
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5"> 
                 </div>
 
             </div>
@@ -142,7 +145,7 @@ Last Updated: 03/20/2025
     </div>
 
     <!--Create Link to JavaScript File-->
-    <script src="script.js"></script>
+    <script src="/src/JS/script.js"></script>
 
 </body>
 </html> 
