@@ -217,7 +217,6 @@ function spinSlots() {
     const multiplierSelect = document.getElementById('multiplier');
     const messageEl = document.getElementById('message');
 
-
     //Check if The Slots Are Already Spining And Display an Error Message 
     if (isSpinning) {
         console.warn("spinSlots() aborted: already spinning");
@@ -228,6 +227,14 @@ function spinSlots() {
 
     //Play "click" Sound Effect When "Spin" Button is Pressed
     playSound(sounds.click);
+
+    //Validate bet input: must be a positive number.
+    const betValue = betInput.value.trim();
+    if (!/^\d+(\.\d+)?$/.test(betValue) || parseFloat(betValue) <= 0) {
+        messageEl.textContent = 'Invalid bet amount!';
+        messageEl.style.color = 'red';
+        return;
+    }
 
     //Set The Initial And Current Balance Based on The Input Value
     if (initialBalance === null) {
